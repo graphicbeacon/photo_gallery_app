@@ -1,0 +1,14 @@
+name: pg_server
+description: A photo gallery server built with Aqueduct.
+version: 0.0.1
+author: Jermaine Oppong
+
+environment:
+  sdk: ">=2.0.0 <3.0.0"
+
+dependencies:
+  aqueduct: ^4.0.0-b1
+
+dev_dependencies:
+  test: ^1.0.0
+  aqueduct_test: ^2.0.0-b1
