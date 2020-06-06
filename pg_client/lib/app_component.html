@@ -1,3 +1,14 @@
-<h1>My First AngularDart App</h1>
-
-<todo-list></todo-list>
+<div class="navbar-fixed page-nav">
+    <nav>
+        <a [routerLink]="RoutePaths.home.toUrl()" class="brand-logo center">Photo Gallery App</a>
+        <ul class="right">
+            <li [routerLink]="RoutePaths.galleryNew.toUrl()" [routerLinkActive]="'active'">
+                <a [routerLink]="RoutePaths.galleryNew.toUrl()">Add new gallery</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="spacer"></div>
+<div class="container">
+    <router-outlet [routes]="Routes.all"></router-outlet>
+</div>
