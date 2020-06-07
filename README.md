@@ -1,6 +1,10 @@
 # Photo Gallery App
 
-A photo gallery web application written in AngularDart and Aqueduct
+A photo gallery web application written in AngularDart and Aqueduct.
+
+This will be streaming on [YouTube](https://youtu.be/jN7wozB77ho) and [Patreon](https://patreon.com/creativebracket).
+
+Check out the `starter` branch for the boilerplate setup to follow along with me in the series.
 
 ## Pre-requisites
 
