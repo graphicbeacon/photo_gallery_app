@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
@@ -22,6 +23,10 @@ class GalleryFormComponent implements OnInit {
 
   DateTime defaultDate;
 
+  final _formUpdateCtrl = StreamController<Gallery>();
+  @Output('onUpdate')
+  Stream get formUpdate => _formUpdateCtrl.stream;
+
   @override
   void ngOnInit() {
     gallery = Gallery();
@@ -39,6 +44,7 @@ class GalleryFormComponent implements OnInit {
   void updateGallery(NgForm form) {
     if (form.valid) {
       window.console.log(gallery.toJson());
+      _formUpdateCtrl.add(gallery);
     } else {
       form.controls.forEach((key, control) {
         control.markAsDirty(onlySelf: true);

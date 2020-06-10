@@ -21,3 +21,15 @@ class DatepickerOptions {
     bool setDefaultDate,
   });
 }
+
+@JS('toast')
+external void initToast(ToastOptions options);
+
+@anonymous
+@JS()
+class ToastOptions {
+  external factory ToastOptions({
+    String html,
+    String classes,
+  });
+}
