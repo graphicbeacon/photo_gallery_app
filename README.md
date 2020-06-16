@@ -13,18 +13,20 @@ Check out the `starter` branch for the boilerplate setup to follow along with me
 
 ## Running packages
 
-### pg_client
+Derry makes it easier to define aliases for commonly run scripts. Install the [**derry**](https://pub.dev/packages/derry) package.
 
 ```bash
-$ cd pg_client # cd into client package
-$ pub get # Update dependencies
-$ webdev serve # launch local web server
+$ pub global activate derry
+```
+
+### Running pg_client
+
+```bash
+$ derry run dev
 ```
 
 ### pg_server
 
 ```bash
-$ cd pg_server # cd into server package
-$ pub get # Update dependencies
-$ aqueduct serve # launch local web server
+$ derry run dev_server
 ```
