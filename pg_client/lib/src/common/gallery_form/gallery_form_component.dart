@@ -19,7 +19,14 @@ import '../directives/datepicker.dart';
       DatepickerDirective,
     ])
 class GalleryFormComponent implements OnInit {
+  @Input()
   Gallery gallery;
+
+  @Input()
+  String submitBtnText;
+
+  @Input()
+  bool isEditMode;
 
   DateTime defaultDate;
 
@@ -29,7 +36,7 @@ class GalleryFormComponent implements OnInit {
 
   @override
   void ngOnInit() {
-    gallery = Gallery();
+    gallery ??= Gallery();
 
     if (gallery.publishDate is String && gallery.publishDate.isNotEmpty) {
       // Convert publishDate to DateTime object

@@ -1,7 +1,7 @@
 <div class="row">
     <div *ngFor="let item of items" class="col m4">
         <div class="card">
-            <a href="">
+            <a [routerLink]="galleryViewUrl(item.id)">
                 <div class="card-image">
                     <img src="https://placehold.it/330x220" alt="">
                 </div>
@@ -10,7 +10,7 @@
                 </div>
             </a>
             <div class="card-action">
-                <a href="" class="valign-wrapper">
+                <a [routerLink]="galleryEditUrl(item.id)" class="valign-wrapper">
                     <i class="material-icons">edit</i> &nbsp;Edit
                 </a>
             </div>

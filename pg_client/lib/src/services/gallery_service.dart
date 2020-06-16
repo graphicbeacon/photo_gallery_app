@@ -19,6 +19,11 @@ class GalleryService {
     return responseGalleries.toList();
   }
 
+  Future<Gallery> getGallery(int id) async {
+    final response = await _dio.get('/$id');
+    return Gallery.fromJson(response.data);
+  }
+
   Future<Gallery> updateGallery(Gallery payload) async {
     final response = await _dio.post('', data: payload.toJson());
     return Gallery.fromJson(response.data);

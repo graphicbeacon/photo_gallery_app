@@ -13,6 +13,12 @@ class GalleryController extends ResourceController {
     return Response.ok(await query.fetch());
   }
 
+  @Operation.get('id')
+  Future<Response> getGallery(@Bind.path('id') int id) async {
+    final query = Query<Gallery>(context)..where((g) => g.id).equalTo(id);
+    return Response.ok(await query.fetchOne());
+  }
+
   @Operation.post()
   Future<Response> createGallery(@Bind.body() Gallery payload) async {
     final query = Query<Gallery>(context)..values = payload;

@@ -14,7 +14,9 @@ import '../common/js_interop/materialize.dart';
         <h3>Add new gallery</h3>
       </div>
     </div>
-    <gallery-form (onUpdate)="updateGallery"></gallery-form>
+    <gallery-form
+      (onUpdate)="updateGallery"
+      submitBtnText="Create gallery"></gallery-form>
   ''',
   directives: [GalleryFormComponent],
   providers: [ClassProvider(GalleryService)],

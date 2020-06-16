@@ -1,4 +1,7 @@
+import '../utils.dart';
+
 class Gallery {
+  int id;
   String title;
   String publishDate;
   String description;
@@ -12,8 +15,9 @@ class Gallery {
   ]);
 
   Gallery.fromJson(Map json) {
+    id = json['id'];
     title = json['title'];
-    publishDate = json['publishDate'];
+    publishDate = formatPublishedDate(json['publishDate']);
     description = json['description'];
     thumbnailUrl = json['thumbnailUrl'];
   }

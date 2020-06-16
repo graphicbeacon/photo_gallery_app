@@ -41,7 +41,7 @@
           <textarea name="description" id="description" class="materialize-textarea" cols="30" rows="10"
             [(ngModel)]="gallery.description"
           ></textarea>
-          <label for="description">Description</label>
+          <label for="description" [class.active]="gallery.description?.isNotEmpty">Description</label>
         </div>
         <div class="input-field file-field">
           <div class="btn red lighten-2">
@@ -52,7 +52,10 @@
             <input type="text" class="file-path" placeholder="Upload thumbnail (330 x 250)">
           </div>
         </div>
-        <button type="submit" class="waves-effect waves-light btn-large">Create gallery</button>
+        <button type="submit" class="waves-effect waves-light btn-large">{{ submitBtnText }}</button>
+        <template [ngIf]="isEditMode">
+          <button type="button" class="waves-effect waves-light btn-large red">Delete gallery</button>
+        </template>
       </form>
     </div>
   </div>

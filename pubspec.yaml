@@ -1,0 +1,9 @@
+name: photo_gallery_app
+description: A Photo Gallery App written in AngularDart and Aqueduct
+
+environment:
+  sdk: '>=2.8.1 <3.0.0'
+
+scripts:
+  dev: cd pg_client && webdev serve --auto restart
+  dev_server: cd pg_server && aqueduct serve

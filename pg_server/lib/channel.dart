@@ -31,7 +31,7 @@ class PgServerChannel extends ApplicationChannel {
   Controller get entryPoint {
     final router = Router();
 
-    router.route("/gallery").link(() => GalleryController(context));
+    router.route("/gallery/[:id]").link(() => GalleryController(context));
 
     return router;
   }
