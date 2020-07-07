@@ -34,6 +34,10 @@ class GalleryFormComponent implements OnInit {
   @Output('onUpdate')
   Stream get formUpdate => _formUpdateCtrl.stream;
 
+  final _formDeleteCtrl = StreamController<Gallery>();
+  @Output('onDelete')
+  Stream get formDelete => _formDeleteCtrl.stream;
+
   @override
   void ngOnInit() {
     gallery ??= Gallery();
@@ -56,6 +60,13 @@ class GalleryFormComponent implements OnInit {
       form.controls.forEach((key, control) {
         control.markAsDirty(onlySelf: true);
       });
+    }
+  }
+
+  void deleteGallery() async {
+    final confirmDelete = window.confirm('Are you sure?');
+    if (confirmDelete) {
+      _formDeleteCtrl.add(gallery);
     }
   }
 }

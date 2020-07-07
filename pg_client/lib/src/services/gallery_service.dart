@@ -24,8 +24,20 @@ class GalleryService {
     return Gallery.fromJson(response.data);
   }
 
-  Future<Gallery> updateGallery(Gallery payload) async {
+  Future<Gallery> createGallery(Gallery payload) async {
     final response = await _dio.post('', data: payload.toJson());
     return Gallery.fromJson(response.data);
+  }
+
+  Future<Gallery> updateGallery(Gallery payload) async {
+    if (payload.id == null) return null;
+    final response = await _dio.put('/${payload.id}', data: payload.toJson());
+    return Gallery.fromJson(response.data);
+  }
+
+  Future deleteGallery(Gallery payload) async {
+    if (payload.id == null) return null;
+    final response = await _dio.delete('/${payload.id}');
+    return response.data;
   }
 }

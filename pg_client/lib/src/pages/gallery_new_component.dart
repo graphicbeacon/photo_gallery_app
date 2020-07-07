@@ -29,7 +29,7 @@ class GalleryNewComponent {
 
   void updateGallery(Gallery gallery) async {
     try {
-      await _galleryService.updateGallery(gallery);
+      await _galleryService.createGallery(gallery);
       initToast(ToastOptions(
         html: 'Successfully added gallery!',
         classes: 'green darken-3',

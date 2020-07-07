@@ -54,7 +54,7 @@
         </div>
         <button type="submit" class="waves-effect waves-light btn-large">{{ submitBtnText }}</button>
         <template [ngIf]="isEditMode">
-          <button type="button" class="waves-effect waves-light btn-large red">Delete gallery</button>
+          <button type="button" (click)="deleteGallery" class="waves-effect waves-light btn-large red">Delete gallery</button>
         </template>
       </form>
     </div>
