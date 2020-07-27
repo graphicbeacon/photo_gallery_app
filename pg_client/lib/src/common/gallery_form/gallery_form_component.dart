@@ -6,6 +6,8 @@ import 'package:angular_forms/angular_forms.dart';
 
 import '../../models/gallery.dart';
 import '../directives/datepicker.dart';
+import '../directives/materialbox.dart';
+import '../../utils.dart';
 
 @Component(
     selector: 'gallery-form',
@@ -17,6 +19,7 @@ import '../directives/datepicker.dart';
       coreDirectives,
       formDirectives,
       DatepickerDirective,
+      MaterialboxDirective,
     ])
 class GalleryFormComponent implements OnInit {
   @Input()
@@ -51,6 +54,14 @@ class GalleryFormComponent implements OnInit {
   void onDatepickerUpdate(Event $event) {
     gallery.publishDate = ($event.target as InputElement).value;
   }
+
+  void handleFileUpload(File file) {
+    generateBase64(file).then((result) {
+      gallery.thumbnail = result;
+    });
+  }
+
+  void deleteThumbnail() => gallery.thumbnail = null;
 
   void updateGallery(NgForm form) {
     if (form.valid) {

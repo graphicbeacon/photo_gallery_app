@@ -5,13 +5,13 @@ class Gallery {
   String title;
   String publishDate;
   String description;
-  String thumbnailUrl;
+  String thumbnail;
 
   Gallery([
     this.title,
     this.publishDate,
     this.description,
-    this.thumbnailUrl,
+    this.thumbnail,
   ]);
 
   Gallery.fromJson(Map json) {
@@ -19,7 +19,7 @@ class Gallery {
     title = json['title'];
     publishDate = formatPublishedDate(json['publishDate']);
     description = json['description'];
-    thumbnailUrl = json['thumbnailUrl'];
+    thumbnail = json['thumbnail'];
   }
 
   Map<String, dynamic> toJson() {
@@ -27,6 +27,7 @@ class Gallery {
       'title': title,
       'publishDate': publishDate,
       'description': description,
+      'thumbnail': thumbnail,
     };
   }
 }

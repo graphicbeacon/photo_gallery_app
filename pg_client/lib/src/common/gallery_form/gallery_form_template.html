@@ -46,12 +46,23 @@
         <div class="input-field file-field">
           <div class="btn red lighten-2">
             <span>File</span>
-            <input type="file" name="file" accept="image/*">
+            <input type="file" name="file" accept="image/*" (change)="handleFileUpload($event.target.files[0])">
           </div>
           <div class="file-path-wrapper">
             <input type="text" class="file-path" placeholder="Upload thumbnail (330 x 250)">
           </div>
         </div>
+        <template [ngIf]="gallery?.thumbnail?.isNotEmpty">
+          <div>
+            <img [attr.src]="gallery.thumbnail" class="materialboxed" width="200"
+              materialbox
+              [materialboxElement]="materialboxElem"
+              #materialboxElem />
+            <br />
+            <button type="button" class="btn grey lighten-2 black-text" (click)="deleteThumbnail">Delete thumbnail</button>
+          </div>
+          <br />
+        </template>
         <button type="submit" class="waves-effect waves-light btn-large">{{ submitBtnText }}</button>
         <template [ngIf]="isEditMode">
           <button type="button" (click)="deleteGallery" class="waves-effect waves-light btn-large red">Delete gallery</button>

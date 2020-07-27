@@ -1,3 +1,6 @@
+import 'dart:html';
+import 'dart:async';
+
 String formatPublishedDate(String dateStr) {
   if (dateStr == null || dateStr.isEmpty) return null;
 
@@ -10,4 +13,17 @@ String formatPublishedDate(String dateStr) {
       date != null && date.day < 10 ? '${date.day}'.padLeft(2, '0') : date?.day;
 
   return '$year-$month-$day';
+}
+
+Future<dynamic> generateBase64(File file) async {
+  final completer = Completer();
+  final reader = FileReader();
+
+  reader.onLoad.listen((file) {
+    final loadedFile = file.currentTarget as FileReader;
+    completer.complete(loadedFile.result);
+  });
+
+  reader.readAsDataUrl(file);
+  return completer.future;
 }

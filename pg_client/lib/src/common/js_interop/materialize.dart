@@ -33,3 +33,10 @@ class ToastOptions {
     String classes,
   });
 }
+
+@JS('Materialbox.init')
+external Materialbox initMaterialbox(Element elem);
+
+class Materialbox {
+  external void destroy();
+}

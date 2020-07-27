@@ -3,7 +3,12 @@
         <div class="card">
             <a [routerLink]="galleryViewUrl(item.id)">
                 <div class="card-image">
-                    <img src="https://placehold.it/330x220" alt="">
+                    <template [ngIf]="item?.thumbnail != null && item.thumbnail.isNotEmpty">
+                        <img [attr.src]="item.thumbnail" alt="">
+                    </template>
+                    <template [ngIf]="item?.thumbnail == null || item?.thumbnail.isEmpty">
+                        <img src="https://placehold.it/330x220" alt="">
+                    </template>
                 </div>
                 <div class="card-content">
                     <span class="card-title">{{ item.title }}</span>

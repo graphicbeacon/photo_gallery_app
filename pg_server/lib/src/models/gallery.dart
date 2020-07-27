@@ -11,4 +11,7 @@ class _Gallery {
 
   @Column(nullable: true)
   String description;
+
+  @Column(nullable: true)
+  String thumbnail;
 }
